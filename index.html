@@ -1,0 +1,489 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2113.65">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'PingFang TC'}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'}
+    span.s1 {font: 12.0px 'PingFang TC'}
+    span.s2 {font: 12.0px Helvetica}
+    span.s3 {font: 13.0px 'Helvetica Neue'}
+    span.s4 {font: 12.0px 'Lucida Grande'}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="zh-Hant"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1">&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1">&lt;meta name="robots" content="noindex, nofollow"&gt;</p>
+<p class="p1">&lt;title&gt;<span class="s1">幹部讀書研討會</span> · <span class="s1">知識共享平台</span>&lt;/title&gt;</p>
+<p class="p1">&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</p>
+<p class="p1">&lt;link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1">&lt;script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;style&gt;</p>
+<p class="p1">:root{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--navy:#0A2540; --navy-2:#123458; --navy-3:#1B4066;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--gold:#C9A84C; --gold-light:#E3CE94; --gold-pale:#F5EEDC;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--green:#1E5C35;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--paper:#FAF7F0; --card:#FFFFFF; --ink:#22303E; --ink-2:#5B6B7A;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--line:#E4DDCE; --danger:#A33226;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--serif:'Noto Serif TC',serif; --sans:'Noto Sans TC',sans-serif;</p>
+<p class="p1">}</p>
+<p class="p1">*{margin:0;padding:0;box-sizing:border-box}</p>
+<p class="p1">body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.7;font-size:16px}</p>
+<p class="p1">a{color:var(--navy-3)}</p>
+<p class="p1">button{font-family:var(--sans);cursor:pointer}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ---------- Header ---------- */</p>
+<p class="p1">header{background:var(--navy);color:#fff;padding:0}</p>
+<p class="p1">.hd-inner{max-width:1080px;margin:0 auto;padding:20px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}</p>
+<p class="p1">.hd-mark{width:44px;height:44px;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;color:var(--gold);font-size:20px;flex:none}</p>
+<p class="p1">.hd-title h1{font-family:var(--serif);font-size:22px;font-weight:700;letter-spacing:.06em}</p>
+<p class="p1">.hd-title p{font-size:12.5px;color:var(--gold-light);letter-spacing:.18em;margin-top:2px}</p>
+<p class="p1">.hd-actions{margin-left:auto;display:flex;gap:10px;align-items:center}</p>
+<p class="p1">.btn{border:1px solid var(--gold);background:transparent;color:var(--gold);padding:7px 16px;font-size:13.5px;letter-spacing:.05em;transition:all .15s}</p>
+<p class="p1">.btn:hover{background:var(--gold);color:var(--navy)}</p>
+<p class="p1">.btn.solid{background:var(--gold);color:var(--navy);font-weight:500}</p>
+<p class="p1">.btn.solid:hover{background:var(--gold-light)}</p>
+<p class="p1">.btn.ghost{border-color:rgba(255,255,255,.35);color:rgba(255,255,255,.85)}</p>
+<p class="p1">.btn.ghost:hover{border-color:#fff;color:#fff;background:transparent}</p>
+<p class="p1">.gold-rule{height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light) 60%,transparent)}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ---------- Layout ---------- */</p>
+<p class="p1">main{max-width:1080px;margin:0 auto;padding:36px 24px 80px}</p>
+<p class="p1">.crumb{font-size:13.5px;color:var(--ink-2);margin-bottom:22px}</p>
+<p class="p1">.crumb a{color:var(--navy-3);text-decoration:none;cursor:pointer}</p>
+<p class="p1">.crumb a:hover{text-decoration:underline}</p>
+<p class="p1">.crumb span.sep{margin:0 8px;color:var(--gold)}</p>
+<p class="p1">.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:24px;flex-wrap:wrap}</p>
+<p class="p1">.sec-head h2{font-family:var(--serif);font-size:24px;color:var(--navy);font-weight:700}</p>
+<p class="p1">.sec-head .count{font-size:13px;color:var(--ink-2)}</p>
+<p class="p1">.sec-head .grow{flex:1}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ---------- Book shelf ---------- */</p>
+<p class="p1">.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px}</p>
+<p class="p1">.book{background:var(--navy);color:#fff;min-height:200px;padding:26px 22px 20px;display:flex;flex-direction:column;position:relative;cursor:pointer;transition:transform .15s,box-shadow .15s;border-left:6px solid var(--gold)}</p>
+<p class="p1">.book:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(10,37,64,.25)}</p>
+<p class="p1">.book .b-eyebrow{font-size:11.5px;letter-spacing:.22em;color:var(--gold-light);margin-bottom:10px}</p>
+<p class="p1">.book h3{font-family:var(--serif);font-size:19px;font-weight:700;line-height:1.5;flex:1}</p>
+<p class="p1">.book .b-author{font-size:13px;color:rgba(255,255,255,.75);margin-top:12px}</p>
+<p class="p1">.book .b-meta{font-size:12px;color:var(--gold-light);margin-top:6px;border-top:1px solid rgba(201,168,76,.35);padding-top:10px;display:flex;justify-content:space-between}</p>
+<p class="p1">.empty{padding:60px 20px;text-align:center;color:var(--ink-2);border:1.5px dashed var(--line);font-size:15px}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ---------- Book detail / chapter list ---------- */</p>
+<p class="p1">.book-hero{background:var(--navy);color:#fff;padding:30px 28px;border-left:6px solid var(--gold);margin-bottom:28px}</p>
+<p class="p1">.book-hero h2{font-family:var(--serif);font-size:26px;font-weight:700}</p>
+<p class="p1">.book-hero .ba{color:var(--gold-light);font-size:14px;margin-top:6px}</p>
+<p class="p1">.book-hero .bd{font-size:14.5px;color:rgba(255,255,255,.85);margin-top:12px;max-width:720px}</p>
+<p class="p1">.ch-list{display:flex;flex-direction:column;gap:10px}</p>
+<p class="p1">.ch-item{background:var(--card);border:1px solid var(--line);padding:16px 20px;display:flex;align-items:center;gap:16px;cursor:pointer;transition:border-color .15s,background .15s}</p>
+<p class="p1">.ch-item:hover{border-color:var(--gold);background:var(--gold-pale)}</p>
+<p class="p1">.ch-num{font-family:var(--serif);font-size:15px;color:var(--gold);font-weight:700;min-width:44px}</p>
+<p class="p1">.ch-item .ch-t{font-size:15.5px;font-weight:500;flex:1}</p>
+<p class="p1">.ch-item .ch-c{font-size:12.5px;color:var(--ink-2)}</p>
+<p class="p1">.ch-item .del{color:var(--danger);border:none;background:none;font-size:12.5px}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ---------- Chapter view ---------- */</p>
+<p class="p1">.ch-head{border-bottom:2px solid var(--navy);padding-bottom:16px;margin-bottom:22px}</p>
+<p class="p1">.ch-head .eyebrow{font-size:12px;letter-spacing:.2em;color:var(--ink-2)}</p>
+<p class="p1">.ch-head h2{font-family:var(--serif);font-size:24px;color:var(--navy);margin-top:4px}</p>
+<p class="p1">.pdf-bar{display:flex;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap}</p>
+<p class="p1">.btn.navy{border-color:var(--navy);color:var(--navy)}</p>
+<p class="p1">.btn.navy:hover{background:var(--navy);color:#fff}</p>
+<p class="p1">.pdf-frame{width:100%;height:72vh;border:1px solid var(--line);background:#fff}</p>
+<p class="p1">.notice{font-size:12.5px;color:var(--ink-2);background:var(--gold-pale);border-left:3px solid var(--gold);padding:8px 14px;margin:14px 0 30px}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ---------- Discussion ---------- */</p>
+<p class="p1">.disc{margin-top:44px}</p>
+<p class="p1">.disc-head{display:flex;align-items:center;gap:12px;margin-bottom:20px}</p>
+<p class="p1">.disc-head h3{font-family:var(--serif);font-size:20px;color:var(--navy)}</p>
+<p class="p1">.disc-head .dot{width:8px;height:8px;background:var(--gold);transform:rotate(45deg)}</p>
+<p class="p1">.post-form{background:var(--card);border:1px solid var(--line);padding:20px;margin-bottom:26px}</p>
+<p class="p1">.post-form label{font-size:13px;color:var(--ink-2);display:block;margin-bottom:4px}</p>
+<p class="p1">.post-form input[type=text],.post-form textarea{width:100%;border:1px solid var(--line);padding:9px 12px;font-family:var(--sans);font-size:14.5px;background:#fff}</p>
+<p class="p1">.post-form input:focus,.post-form textarea:focus{outline:2px solid var(--gold);outline-offset:-1px}</p>
+<p class="p1">.post-form textarea{min-height:110px;resize:vertical;margin-top:12px}</p>
+<p class="p1">.post-form .row{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}</p>
+<p class="p1">.post-form .row&gt;div{flex:1;min-width:200px}</p>
+<p class="p1">.form-foot{display:flex;justify-content:flex-end;margin-top:12px;gap:10px}</p>
+<p class="p1">.post{background:var(--card);border:1px solid var(--line);padding:18px 20px;margin-bottom:14px}</p>
+<p class="p1">.post .p-head{display:flex;align-items:baseline;gap:12px;margin-bottom:8px;flex-wrap:wrap}</p>
+<p class="p1">.post .p-name{font-weight:700;color:var(--navy);font-size:15px}</p>
+<p class="p1">.post .p-time{font-size:12px;color:var(--ink-2)}</p>
+<p class="p1">.post .p-body{font-size:14.5px;white-space:pre-wrap}</p>
+<p class="p1">.post .p-actions{margin-top:10px;display:flex;gap:14px}</p>
+<p class="p1">.post .p-actions button{background:none;border:none;font-size:12.5px;color:var(--navy-3)}</p>
+<p class="p1">.post .p-actions button:hover{text-decoration:underline}</p>
+<p class="p1">.post .p-actions .del{color:var(--danger)}</p>
+<p class="p1">.reply{margin-left:34px;border-left:3px solid var(--gold-light);background:#FCFAF4}</p>
+<p class="p1">.reply-form{margin-left:34px;margin-bottom:14px}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ---------- Modal ---------- */</p>
+<p class="p1">.overlay{position:fixed;inset:0;background:rgba(10,37,64,.55);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}</p>
+<p class="p1">.overlay.open{display:flex}</p>
+<p class="p1">.modal{background:#fff;max-width:520px;width:100%;padding:28px;border-top:4px solid var(--gold);max-height:90vh;overflow:auto}</p>
+<p class="p1">.modal h3{font-family:var(--serif);font-size:19px;color:var(--navy);margin-bottom:18px}</p>
+<p class="p1">.modal label{font-size:13px;color:var(--ink-2);display:block;margin:14px 0 4px}</p>
+<p class="p1">.modal input[type=text],.modal input[type=number],.modal input[type=password],.modal textarea,.modal input[type=file]{width:100%;border:1px solid var(--line);padding:9px 12px;font-family:var(--sans);font-size:14.5px}</p>
+<p class="p1">.modal textarea{min-height:80px;resize:vertical}</p>
+<p class="p1">.modal .m-foot{display:flex;justify-content:flex-end;gap:10px;margin-top:24px}</p>
+<p class="p1">.btn.plain{border-color:var(--line);color:var(--ink-2)}</p>
+<p class="p1">.progress{font-size:13px;color:var(--green);margin-top:10px;display:none}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ---------- Toast / footer ---------- */</p>
+<p class="p1">.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 22px;font-size:14px;border-left:4px solid var(--gold);display:none;z-index:99}</p>
+<p class="p1">footer{border-top:1px solid var(--line);padding:22px 24px;text-align:center;font-size:12px;color:var(--ink-2);letter-spacing:.08em}</p>
+<p class="p1">.admin-tag{font-size:11px;background:var(--gold);color:var(--navy);padding:2px 8px;letter-spacing:.1em;font-weight:700;display:none}</p>
+<p class="p1">body.admin .admin-tag{display:inline-block}</p>
+<p class="p1">.admin-only{display:none}</p>
+<p class="p1">body.admin .admin-only{display:inline-flex}</p>
+<p class="p1">.setup-warn{max-width:720px;margin:60px auto;background:#fff;border:1px solid var(--line);border-top:4px solid var(--danger);padding:32px}</p>
+<p class="p1">.setup-warn h2{font-family:var(--serif);color:var(--navy);margin-bottom:12px}</p>
+<p class="p1">.setup-warn code{background:var(--gold-pale);padding:2px 6px;font-size:13.5px}</p>
+<p class="p1">@media (max-width:640px){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hd-inner{padding:16px}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>main{padding:24px 16px 60px}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.reply,.reply-form{margin-left:14px}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.pdf-frame{height:60vh}</p>
+<p class="p1">}</p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="hd-inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hd-mark"&gt;<span class="s1">研</span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hd-title"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h1&gt;<span class="s1">幹部讀書研討會</span>&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;READING &amp;amp; SHARING · <span class="s1">知識共享平台</span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hd-actions"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="admin-tag"&gt;<span class="s1">管理模式</span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="btn ghost admin-only" onclick="exportAll()"&gt;<span class="s1">匯出備份</span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="btn ghost" id="adminBtn" onclick="toggleAdmin()"&gt;<span class="s1">管理登入</span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="gold-rule"&gt;&lt;/div&gt;</p>
+<p class="p1">&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;main id="app"&gt;&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p3"><span class="s2">&lt;footer&gt;</span>本平台內容僅供公司內部教育訓練研討使用，請勿對外散布或作其他用途<span class="s2">&lt;/footer&gt;</span></p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="toast" id="toast"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- <span class="s1">新增</span>/<span class="s1">編輯書籍</span> --&gt;</p>
+<p class="p1">&lt;div class="overlay" id="bookModal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="modal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3 id="bookModalTitle"&gt;<span class="s1">新增書籍</span>&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label&gt;<span class="s1">書名</span> *&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="text" id="bkTitle" placeholder="<span class="s1">例：目標：簡單有效的常識管理</span>"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label&gt;<span class="s1">作者</span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="text" id="bkAuthor" placeholder="<span class="s1">例：高德拉特</span>"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label&gt;<span class="s1">簡介</span> / <span class="s1">導讀重點</span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;textarea id="bkDesc" placeholder="<span class="s1">這本書為什麼值得幹部研讀？希望大家聚焦什麼？</span>"&gt;&lt;/textarea&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="m-foot"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="btn plain" onclick="closeModal('bookModal')"&gt;<span class="s1">取消</span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="btn solid" onclick="saveBook()"&gt;<span class="s1">儲存</span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- <span class="s1">新增章節</span> --&gt;</p>
+<p class="p1">&lt;div class="overlay" id="chModal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="modal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;<span class="s1">新增章節</span>&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label&gt;<span class="s1">章節順序（數字，決定排列先後）</span>*&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="number" id="chOrder" placeholder="<span class="s1">例：</span>1" min="0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label&gt;<span class="s1">章節標題</span> *&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="text" id="chTitle" placeholder="<span class="s1">例：第一章</span> <span class="s1">突如其來的危機</span>"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label&gt;<span class="s1">上傳章節</span> PDF <span class="s1">檔</span> *&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="file" id="chFile" accept="application/pdf"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="progress" id="chProgress"&gt;<span class="s1">正在上傳</span> PDF<span class="s1">，請稍候⋯</span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="m-foot"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="btn plain" onclick="closeModal('chModal')"&gt;<span class="s1">取消</span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="btn solid" id="chSaveBtn" onclick="saveChapter()"&gt;<span class="s1">上傳並儲存</span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- <span class="s1">管理登入</span> --&gt;</p>
+<p class="p1">&lt;div class="overlay" id="pwModal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="modal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;<span class="s1">管理登入</span>&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label&gt;<span class="s1">請輸入管理密碼</span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="password" id="pwInput" onkeydown="if(event.key==='Enter')checkPw()"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="m-foot"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="btn plain" onclick="closeModal('pwModal')"&gt;<span class="s1">取消</span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="btn solid" onclick="checkPw()"&gt;<span class="s1">登入</span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">/* ==========================================================</p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">   </span></span>系統設定<span class="s2"> —— </span>部署時只需要改這一區（詳見部署指南）</p>
+<p class="p1"><span class="Apple-converted-space">   </span>========================================================== */</p>
+<p class="p1">const CONFIG = {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>SUPABASE_URL:<span class="Apple-converted-space">  </span>"<span class="s3">https://mbjyecdrcpovfrhdxpmd.supabase.co</span>",<span class="Apple-converted-space">        </span>// <span class="s1">例：</span>https://xxxx.supabase.co</p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">  </span>SUPABASE_KEY:<span class="Apple-converted-space">  </span>"</span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ianllY2RyY3BvdmZyaGR4cG1kIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMyNTI4NjIsImV4cCI6MjA5ODgyODg2Mn0.3xH6sGNYkv7VvzwZQjacUsJ_L8DpEkwrCLfbMArFhVk<span class="s2">", <span class="Apple-converted-space">  </span>// Supabase </span><span class="s1">的</span><span class="s2"> anon public key</span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>BUCKET:<span class="Apple-converted-space">        </span>"chapter-pdfs", <span class="Apple-converted-space">            </span>// <span class="s1">儲存</span> PDF <span class="s1">的</span> bucket <span class="s1">名稱</span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>ADMIN_PASS:<span class="Apple-converted-space">    </span>"gotrend2026" <span class="Apple-converted-space">              </span>// <span class="s1">管理密碼（請自行修改）</span></p>
+<p class="p1">};</p>
+<p class="p1">/* ========================================================== */</p>
+<p class="p2"><br></p>
+<p class="p1">let db = null, state = { view:"books", bookId:null, book:null, chapterId:null, chapter:null };</p>
+<p class="p2"><br></p>
+<p class="p1">function $(id){ return document.getElementById(id); }</p>
+<p class="p1">function esc(s){ return (s||"").replace(/[&amp;&lt;&gt;"']/g, c =&gt; ({'&amp;':'&amp;amp;','&lt;':'&amp;lt;','&gt;':'&amp;gt;','"':'&amp;quot;',"'":'&amp;#39;'}[c])); }</p>
+<p class="p1">function toast(msg){ const t=$("toast"); t.textContent=msg; t.style.display="block"; setTimeout(()=&gt;t.style.display="none", 2600); }</p>
+<p class="p1">function fmtTime(ts){ const d=new Date(ts); return d.getFullYear()+"/"+String(d.getMonth()+1).padStart(2,"0")+"/"+String(d.getDate()).padStart(2,"0")+" "+String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0"); }</p>
+<p class="p1">function openModal(id){ $(id).classList.add("open"); }</p>
+<p class="p1">function closeModal(id){ $(id).classList.remove("open"); }</p>
+<p class="p2"><br></p>
+<p class="p1">/* ---------- <span class="s1">初始化</span> ---------- */</p>
+<p class="p1">function init(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(CONFIG.SUPABASE_URL.startsWith("YOUR_")){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("app").innerHTML = `&lt;div class="setup-warn"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;<span class="s1">尚未完成系統設定</span>&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;<span class="s1">請開啟</span> &lt;code&gt;index.html&lt;/code&gt;<span class="s1">，找到最上方的</span> &lt;code&gt;CONFIG&lt;/code&gt; <span class="s1">區塊，</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">      </span></span>填入您的<span class="s2"> Supabase </span>網址與金鑰後重新上傳。詳細步驟請參考「部署指南」文件。<span class="s2">&lt;/p&gt;&lt;/div&gt;`;</span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>db = supabase.createClient(CONFIG.SUPABASE_URL, CONFIG.SUPABASE_KEY);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(sessionStorage.getItem("rc_admin")==="1") setAdmin(true);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>showBooks();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function setAdmin(on){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.body.classList.toggle("admin", on);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("adminBtn").textContent = on ? "<span class="s1">登出管理</span>" : "<span class="s1">管理登入</span>";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(on) sessionStorage.setItem("rc_admin","1"); else sessionStorage.removeItem("rc_admin");</p>
+<p class="p1">}</p>
+<p class="p1">function toggleAdmin(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(document.body.classList.contains("admin")){ setAdmin(false); render(); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>else { $("pwInput").value=""; openModal("pwModal"); setTimeout(()=&gt;$("pwInput").focus(),100); }</p>
+<p class="p1">}</p>
+<p class="p1">function checkPw(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if($("pwInput").value === CONFIG.ADMIN_PASS){ setAdmin(true); closeModal("pwModal"); toast("<span class="s1">已進入管理模式</span>"); render(); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>else toast("<span class="s1">密碼錯誤</span>");</p>
+<p class="p1">}</p>
+<p class="p1">function isAdmin(){ return document.body.classList.contains("admin"); }</p>
+<p class="p2"><br></p>
+<p class="p1">function render(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(state.view==="books") showBooks();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>else if(state.view==="book") openBook(state.bookId);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>else if(state.view==="chapter") openChapter(state.chapterId);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ---------- <span class="s1">書籍目錄</span> ---------- */</p>
+<p class="p1">async function showBooks(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>state.view="books";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("app").innerHTML = `&lt;div class="sec-head"&gt;&lt;h2&gt;<span class="s1">書籍目錄</span>&lt;/h2&gt;&lt;span class="count" id="bkCount"&gt;&lt;/span&gt;&lt;span class="grow"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="btn navy admin-only" onclick="newBook()"&gt;<span class="s1">＋</span> <span class="s1">新增書籍</span>&lt;/button&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="shelf" id="shelf"&gt;&lt;div class="empty"&gt;<span class="s1">載入中⋯</span>&lt;/div&gt;&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const { data: books, error } = await db.from("books").select("*, chapters(count)").order("created_at",{ascending:true});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(error){ $("shelf").innerHTML = `&lt;div class="empty"&gt;<span class="s1">讀取失敗：</span>${esc(error.message)}&lt;/div&gt;`; return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("bkCount").textContent = `<span class="s1">共</span> ${books.length} <span class="s1">本</span>`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!books.length){ $("shelf").innerHTML = `&lt;div class="empty"&gt;<span class="s1">目前還沒有書籍。</span>${isAdmin()?"<span class="s1">點右上「＋</span> <span class="s1">新增書籍」開始建立第一本。</span>":"<span class="s1">請等待管理者建立書籍。</span>"}&lt;/div&gt;`; return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("shelf").innerHTML = books.map((b,i)=&gt;`</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="book" onclick="openBook('${b.id}')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="b-eyebrow"&gt;BOOK ${String(i+1).padStart(2,"0")}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;${esc(b.title)}&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="b-author"&gt;${b.author?esc(b.author):"&amp;nbsp;"}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="b-meta"&gt;&lt;span&gt;${b.chapters?.[0]?.count ?? 0} <span class="s1">個章節</span>&lt;/span&gt;&lt;span&gt;<span class="s1">進入研讀</span> <span class="s4">→</span>&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;`).join("");</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function newBook(){ editingBookId=null; $("bookModalTitle").textContent="<span class="s1">新增書籍</span>"; $("bkTitle").value=""; $("bkAuthor").value=""; $("bkDesc").value=""; openModal("bookModal"); }</p>
+<p class="p1">let editingBookId = null;</p>
+<p class="p1">function editBook(){ const b=state.book; editingBookId=b.id; $("bookModalTitle").textContent="<span class="s1">編輯書籍</span>"; $("bkTitle").value=b.title; $("bkAuthor").value=b.author||""; $("bkDesc").value=b.description||""; openModal("bookModal"); }</p>
+<p class="p1">async function saveBook(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const title=$("bkTitle").value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!title){ toast("<span class="s1">請填寫書名</span>"); return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const row={ title, author:$("bkAuthor").value.trim(), description:$("bkDesc").value.trim() };</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const q = editingBookId ? db.from("books").update(row).eq("id",editingBookId) : db.from("books").insert(row);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const { error } = await q;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(error){ toast("<span class="s1">儲存失敗：</span>"+error.message); return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>closeModal("bookModal"); toast("<span class="s1">已儲存</span>"); render();</p>
+<p class="p1">}</p>
+<p class="p1">async function deleteBook(){</p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>if(!confirm("</span>確定刪除整本書？此書所有章節與心得都會一併刪除，無法復原。<span class="s2">")) return;</span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const { error } = await db.from("books").delete().eq("id",state.bookId);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(error){ toast("<span class="s1">刪除失敗：</span>"+error.message); return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>toast("<span class="s1">已刪除</span>"); showBooks();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ---------- <span class="s1">書籍頁（章節清單）</span> ---------- */</p>
+<p class="p1">async function openBook(id){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>state.view="book"; state.bookId=id;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const { data: book } = await db.from("books").select("*").eq("id",id).single();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!book){ showBooks(); return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>state.book = book;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const { data: chapters } = await db.from("chapters").select("*").eq("book_id",id).order("sort_order",{ascending:true});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("app").innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="crumb"&gt;&lt;a onclick="showBooks()"&gt;<span class="s1">書籍目錄</span>&lt;/a&gt;&lt;span class="sep"&gt;›&lt;/span&gt;${esc(book.title)}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="book-hero"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;${esc(book.title)}&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>${book.author?`&lt;div class="ba"&gt;<span class="s1">作者：</span>${esc(book.author)}&lt;/div&gt;`:""}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>${book.description?`&lt;div class="bd"&gt;${esc(book.description)}&lt;/div&gt;`:""}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="sec-head"&gt;&lt;h2&gt;<span class="s1">章節內容</span>&lt;/h2&gt;&lt;span class="count"&gt;<span class="s1">共</span> ${chapters.length} <span class="s1">章</span>&lt;/span&gt;&lt;span class="grow"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="btn navy admin-only" onclick="newChapter()"&gt;<span class="s1">＋</span> <span class="s1">新增章節</span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="btn navy admin-only" onclick="editBook()"&gt;<span class="s1">編輯書籍</span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="btn plain admin-only" style="color:var(--danger);border-color:var(--danger)" onclick="deleteBook()"&gt;<span class="s1">刪除書籍</span>&lt;/button&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="ch-list"&gt;${ chapters.length ? chapters.map(c=&gt;`</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="ch-item" onclick="openChapter('${c.id}')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="ch-num"&gt;${String(c.sort_order).padStart(2,"0")}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="ch-t"&gt;${esc(c.title)}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="ch-c"&gt;<span class="s1">閱讀與研討</span> <span class="s4">→</span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>${isAdmin()?`&lt;button class="del" onclick="event.stopPropagation();deleteChapter('${c.id}','${esc(c.pdf_path)}')"&gt;<span class="s1">刪除</span>&lt;/button&gt;`:""}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;`).join("") : `&lt;div class="empty"&gt;<span class="s1">尚未上傳任何章節。</span>&lt;/div&gt;` }&lt;/div&gt;`;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function newChapter(){ $("chOrder").value=""; $("chTitle").value=""; $("chFile").value=""; openModal("chModal"); }</p>
+<p class="p1">async function saveChapter(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const order=parseInt($("chOrder").value), title=$("chTitle").value.trim(), file=$("chFile").files[0];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(isNaN(order)||!title||!file){ toast("<span class="s1">順序、標題與</span> PDF <span class="s1">檔皆為必填</span>"); return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(file.type!=="application/pdf"){ toast("<span class="s1">請選擇</span> PDF <span class="s1">檔案</span>"); return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(file.size &gt; 50*1024*1024){ toast("<span class="s1">檔案超過</span> 50MB<span class="s1">，請壓縮後再上傳</span>"); return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("chSaveBtn").disabled=true; $("chProgress").style.display="block";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const path = `${state.bookId}/${Date.now()}.pdf`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const { error: upErr } = await db.storage.from(CONFIG.BUCKET).upload(path, file, { contentType:"application/pdf" });</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(upErr){ toast("PDF <span class="s1">上傳失敗：</span>"+upErr.message); $("chSaveBtn").disabled=false; $("chProgress").style.display="none"; return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const { error } = await db.from("chapters").insert({ book_id:state.bookId, sort_order:order, title, pdf_path:path });</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("chSaveBtn").disabled=false; $("chProgress").style.display="none";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(error){ toast("<span class="s1">儲存失敗：</span>"+error.message); return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>closeModal("chModal"); toast("<span class="s1">章節已建立</span>"); openBook(state.bookId);</p>
+<p class="p1">}</p>
+<p class="p1">async function deleteChapter(id, pdfPath){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!confirm("<span class="s1">確定刪除此章節？相關心得會一併刪除。</span>")) return;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>await db.storage.from(CONFIG.BUCKET).remove([pdfPath]);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const { error } = await db.from("chapters").delete().eq("id",id);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(error){ toast("<span class="s1">刪除失敗：</span>"+error.message); return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>toast("<span class="s1">已刪除</span>"); openBook(state.bookId);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ---------- <span class="s1">章節頁（</span>PDF + <span class="s1">心得研討）</span> ---------- */</p>
+<p class="p1">function pdfUrl(path){ return db.storage.from(CONFIG.BUCKET).getPublicUrl(path).data.publicUrl; }</p>
+<p class="p2"><br></p>
+<p class="p1">async function openChapter(id){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>state.view="chapter"; state.chapterId=id;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const { data: ch } = await db.from("chapters").select("*, books(id,title)").eq("id",id).single();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!ch){ showBooks(); return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>state.chapter=ch; state.bookId=ch.books.id; state.book={id:ch.books.id,title:ch.books.title};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const url = pdfUrl(ch.pdf_path);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("app").innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="crumb"&gt;&lt;a onclick="showBooks()"&gt;<span class="s1">書籍目錄</span>&lt;/a&gt;&lt;span class="sep"&gt;›&lt;/span&gt;&lt;a onclick="openBook('${ch.books.id}')"&gt;${esc(ch.books.title)}&lt;/a&gt;&lt;span class="sep"&gt;›&lt;/span&gt;${esc(ch.title)}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="ch-head"&gt;&lt;div class="eyebrow"&gt;CHAPTER ${String(ch.sort_order).padStart(2,"0")}&lt;/div&gt;&lt;h2&gt;${esc(ch.title)}&lt;/h2&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="pdf-bar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="btn navy" onclick="window.open('${url}','_blank')"&gt;<span class="s1">在新視窗開啟</span> PDF&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="${url}" download style="font-size:13.5px"&gt;<span class="s1">下載</span> PDF&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;embed class="pdf-frame" src="${url}" type="application/pdf"&gt;</p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>&lt;div class="notice"&gt;</span>本章節內容僅供內部研讀，請勿外流。手機若無法直接預覽，請點「在新視窗開啟<span class="s2"> PDF</span>」。<span class="s2">&lt;/div&gt;</span></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="disc"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="disc-head"&gt;&lt;span class="dot"&gt;&lt;/span&gt;&lt;h3&gt;<span class="s1">學習心得研討</span>&lt;/h3&gt;&lt;span class="count" id="postCount"&gt;&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="post-form"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;&lt;label&gt;<span class="s1">您的姓名</span> *&lt;/label&gt;&lt;input type="text" id="pName" placeholder="<span class="s1">請填真實姓名，方便同仁交流</span>" value="${esc(localStorage.getItem("rc_name")||"")}"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;textarea id="pContent" placeholder="<span class="s1">讀完這個章節，您的收穫、反思、或想跟大家討論的問題⋯</span>"&gt;&lt;/textarea&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="form-foot"&gt;&lt;button class="btn solid" onclick="submitPost(null)"&gt;<span class="s1">發布心得</span>&lt;/button&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div id="postList"&gt;<span class="s1">載入中⋯</span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>loadPosts();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">async function loadPosts(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const { data: posts, error } = await db.from("posts").select("*").eq("chapter_id",state.chapterId).order("created_at",{ascending:true});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(error){ $("postList").innerHTML=`&lt;div class="empty"&gt;<span class="s1">心得載入失敗：</span>${esc(error.message)}&lt;/div&gt;`; return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const tops = posts.filter(p=&gt;!p.parent_id);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const replies = pid =&gt; posts.filter(p=&gt;p.parent_id===pid);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("postCount").textContent = `<span class="s1">共</span> ${posts.length} <span class="s1">則</span>`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!tops.length){ $("postList").innerHTML=`&lt;div class="empty"&gt;<span class="s1">還沒有人分享心得，成為第一位分享者吧。</span>&lt;/div&gt;`; return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("postList").innerHTML = tops.map(p=&gt;renderPost(p,false)+replies(p.id).map(r=&gt;renderPost(r,true)).join("")+`&lt;div id="rf-${p.id}"&gt;&lt;/div&gt;`).join("");</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function renderPost(p, isReply){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return `&lt;div class="post ${isReply?"reply":""}"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="p-head"&gt;&lt;span class="p-name"&gt;${esc(p.author_name)}&lt;/span&gt;&lt;span class="p-time"&gt;${fmtTime(p.created_at)}&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="p-body"&gt;${esc(p.content)}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="p-actions"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>${!isReply?`&lt;button onclick="showReplyForm('${p.id}')"&gt;<span class="s1">回覆</span>&lt;/button&gt;`:""}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>${isAdmin()?`&lt;button class="del" onclick="deletePost('${p.id}')"&gt;<span class="s1">刪除</span>&lt;/button&gt;`:""}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;&lt;/div&gt;`;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function showReplyForm(pid){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const slot=$("rf-"+pid);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(slot.innerHTML){ slot.innerHTML=""; return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>slot.innerHTML=`&lt;div class="post-form reply-form"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="row"&gt;&lt;div&gt;&lt;label&gt;<span class="s1">您的姓名</span> *&lt;/label&gt;&lt;input type="text" id="rName-${pid}" value="${esc(localStorage.getItem("rc_name")||"")}"&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;textarea id="rContent-${pid}" placeholder="<span class="s1">回應這則心得⋯</span>"&gt;&lt;/textarea&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="form-foot"&gt;&lt;button class="btn plain" onclick="$('rf-${pid}').innerHTML=''"&gt;<span class="s1">取消</span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="btn solid" onclick="submitReply('${pid}')"&gt;<span class="s1">發布回覆</span>&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">async function submitPost(parentId){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const name=$("pName").value.trim(), content=$("pContent").value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!name||!content){ toast("<span class="s1">姓名與內容皆為必填</span>"); return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>localStorage.setItem("rc_name",name);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const { error } = await db.from("posts").insert({ chapter_id:state.chapterId, parent_id:parentId, author_name:name, content });</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(error){ toast("<span class="s1">發布失敗：</span>"+error.message); return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("pContent").value=""; toast("<span class="s1">已發布</span>"); loadPosts();</p>
+<p class="p1">}</p>
+<p class="p1">async function submitReply(pid){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const name=$("rName-"+pid).value.trim(), content=$("rContent-"+pid).value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!name||!content){ toast("<span class="s1">姓名與內容皆為必填</span>"); return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>localStorage.setItem("rc_name",name);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const { error } = await db.from("posts").insert({ chapter_id:state.chapterId, parent_id:pid, author_name:name, content });</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(error){ toast("<span class="s1">發布失敗：</span>"+error.message); return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>toast("<span class="s1">已發布</span>"); loadPosts();</p>
+<p class="p1">}</p>
+<p class="p1">async function deletePost(id){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!confirm("<span class="s1">確定刪除這則心得（含其回覆）？</span>")) return;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const { error } = await db.from("posts").delete().eq("id",id);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(error){ toast("<span class="s1">刪除失敗：</span>"+error.message); return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>toast("<span class="s1">已刪除</span>"); loadPosts();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ---------- <span class="s1">全站資料匯出</span> ---------- */</p>
+<p class="p1">async function exportAll(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>toast("<span class="s1">正在整理備份資料⋯</span>");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const [{data:books},{data:chapters},{data:posts}] = await Promise.all([</p>
+<p class="p1"><span class="Apple-converted-space">    </span>db.from("books").select("*").order("created_at"),</p>
+<p class="p1"><span class="Apple-converted-space">    </span>db.from("chapters").select("*").order("book_id"),</p>
+<p class="p1"><span class="Apple-converted-space">    </span>db.from("posts").select("*").order("created_at")</p>
+<p class="p1"><span class="Apple-converted-space">  </span>]);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const backup = {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>exported_at: new Date().toISOString(),</p>
+<p class="p1"><span class="Apple-converted-space">    </span>note: "GOTREND <span class="s1">讀書研討會平台完整備份。</span>pdf_url <span class="s1">為各章節</span> PDF <span class="s1">的下載連結，可逐一下載保存。</span>",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>books,<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>chapters: chapters.map(c=&gt;({ ...c, pdf_url: pdfUrl(c.pdf_path) })),</p>
+<p class="p1"><span class="Apple-converted-space">    </span>posts</p>
+<p class="p1"><span class="Apple-converted-space">  </span>};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const blob = new Blob([JSON.stringify(backup,null,2)],{type:"application/json"});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const a=document.createElement("a");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>a.href=URL.createObjectURL(blob);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>a.download=`<span class="s1">讀書會平台備份</span>_${new Date().toISOString().slice(0,10)}.json`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>a.click();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>toast("<span class="s1">備份檔已下載（含所有</span> PDF <span class="s1">下載連結）</span>");</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">init();</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
